@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.system.exitProcess
@@ -23,8 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var buttonSumBTN: Button
     private lateinit var buttonDifBTN: Button
-    private lateinit var buttonMulBTN: Button
-    private lateinit var buttonDevBTN: Button
+
 
 
     private lateinit var buttonResetBTN: Button
@@ -80,10 +80,23 @@ class MainActivity : AppCompatActivity() {
                 firstOperandET.text.clear()
                 secondOperandET.text.clear()
                 resultTv.text = "Результат"
+                resultTv.setTextColor(Color.BLACK)
+                myToast("Данные очищены")
             }
-            R.id.exitMenuMain -> exitProcess(0)
+            R.id.exitMenuMain -> {
+                myToast("Работа завершена")
+                exitProcess(0)
+            }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun myToast(text: String){
+        return Toast.makeText(
+            applicationContext,
+            text,
+            Toast.LENGTH_LONG
+        ).show()
     }
 
     private fun onClick(v: View){
@@ -99,17 +112,24 @@ class MainActivity : AppCompatActivity() {
         var result = when(v.id) {
             R.id.buttonSumBTN -> Operation(first,second).sum()
             R.id.buttonDifBTN -> Operation(first,second).dif()
+
             R.id.buttonResetBTN -> {
                 firstOperandET.text.clear()
                 secondOperandET.text.clear()
+                resultTv.setTextColor(Color.BLACK)
+                myToast("Данные очищены")
                 check = false
             }
-            R.id.buttonExitBTN -> exitProcess(0)
+
+            R.id.buttonExitBTN -> {
+                myToast("Работа завершена")
+            }
             else -> 0.0
         }
         if(!check) resultTv.text = "Результат" else {
             resultTv.setTextColor(Color.parseColor("#8B0000"))
             resultTv.text = result.toString()
+            myToast("Результат $result")
         }
 
     }
