@@ -4,12 +4,14 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toolbar
+import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
 
@@ -48,8 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         buttonDifBTN = findViewById(R.id.buttonDifBTN)
         buttonSumBTN = findViewById(R.id.buttonSumBTN)
-        buttonMulBTN = findViewById(R.id.buttonMulBTN)
-        buttonDevBTN = findViewById(R.id.buttonDevBTN)
+
 
 
         buttonResetBTN = findViewById(R.id.buttonResetBTN)
@@ -60,21 +61,30 @@ class MainActivity : AppCompatActivity() {
 
         buttonDifBTN.setOnClickListener(::onClick)
         buttonSumBTN.setOnClickListener(::onClick)
-        buttonMulBTN.setOnClickListener(::onClick)
-        buttonDevBTN.setOnClickListener(::onClick)
+
 
         buttonResetBTN.setOnClickListener(::onClick)
         buttonExitBTN.setOnClickListener(::onClick)
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-
-//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//        menuInflater.inflate(R.menu.menu_main, menu)
-//        return true
-//    }
+        when(item.itemId){
+            R.id.resetMenuMain -> {
+                firstOperandET.text.clear()
+                secondOperandET.text.clear()
+                resultTv.text = "Результат"
+            }
+            R.id.exitMenuMain -> exitProcess(0)
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
     private fun onClick(v: View){
 
@@ -83,20 +93,18 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        var first = firstOperandET.text.toString().toDouble()
-        var second = firstOperandET.text.toString().toDouble()
+        var first = firstOperandET.text.toString()
+        var second = secondOperandET.text.toString()
 
         var result = when(v.id) {
             R.id.buttonSumBTN -> Operation(first,second).sum()
             R.id.buttonDifBTN -> Operation(first,second).dif()
-            R.id.buttonMulBTN -> Operation(first,second).mul()
-            R.id.buttonDevBTN -> Operation(first,second).dev()
             R.id.buttonResetBTN -> {
                 firstOperandET.text.clear()
                 secondOperandET.text.clear()
                 check = false
             }
-            R.id.buttonExitBTN -> finish()
+            R.id.buttonExitBTN -> exitProcess(0)
             else -> 0.0
         }
         if(!check) resultTv.text = "Результат" else {

@@ -7,14 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/toolbar_color"
         android:titleTextColor="@color/white"
         android:subtitleTextColor="@color/white"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints">
+
+    </androidx.appcompat.widget.Toolbar>
 
     <TextView
         android:id="@+id/programTitleTv"
@@ -84,27 +86,8 @@
             android:text="+"
             />
 
-        <Button
-            android:id="@+id/buttonMulBTN"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8pt"
-            android:textSize="22sp"
-            android:layout_weight ="1"
-            android:backgroundTint="@color/button_color"
-            android:text="*"
-            />
 
-        <Button
-            android:id="@+id/buttonDevBTN"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8pt"
-            android:textSize="22sp"
-            android:layout_weight ="1"
-            android:backgroundTint="@color/button_color"
-            android:text="/"
-            />
+
 
         <Button
             android:id="@+id/buttonDifBTN"
