@@ -18,6 +18,7 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+
     <TextView
         android:id="@+id/programTitleTv"
         android:layout_width="wrap_content"
@@ -28,131 +29,27 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarMain"
+        app:layout_constraintVertical_bias="0.2"
         />
 
-    <LinearLayout
-        android:id="@+id/linearLayoutInputOperand"
-        android:layout_width="match_parent"
+
+
+    <Button
+        android:id="@+id/buttonResultBTN"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="8pt"
-        android:layout_marginLeft="8pt"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/programTitleTv"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.1">
-
-        <EditText
-            android:id="@+id/firstOperandEt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8pt"
-            android:layout_weight="1"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-        <EditText
-            android:id="@+id/secondOperandEt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8pt"
-            android:layout_weight="1"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linearLayoutChoiceOperand"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="8pt"
-        android:layout_marginLeft="8pt"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutInputOperand"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.1">
-
-        <Button
-            android:id="@+id/buttonSumBTN"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8pt"
-            android:textSize="22sp"
-            android:layout_weight ="1"
-            android:backgroundTint="@color/button_color"
-            android:text="+"
-            />
-
-
-
-
-        <Button
-            android:id="@+id/buttonDifBTN"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8pt"
-            android:backgroundTint="@color/button_color"
-            android:layout_weight ="1"
-            android:textSize="22sp"
-            android:text="-"
-            />
-
-
-
-
-    </LinearLayout>
-    <TextView
-        android:id="@+id/resultTV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_weight ="1"
+        android:textSize="22sp"
+        android:backgroundTint="@color/button_color"
         android:text="Результат"
-        android:gravity="center_horizontal"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutChoiceOperand"
-        app:layout_constraintVertical_bias="0.1"/>
-
-    <LinearLayout
-        android:id="@+id/linearLayoutResetExit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="8pt"
-        android:layout_marginLeft="8pt"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/resultTV"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.1">
+        app:layout_constraintTop_toBottomOf="@+id/programTitleTv"
+        app:layout_constraintVertical_bias="0.2"
+        />
 
-        <Button
-            android:id="@+id/buttonResetBTN"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8pt"
-            android:layout_weight ="1"
-            android:textSize="22sp"
-            android:backgroundTint="@color/button_color"
-            android:text="Reset"
-            />
-
-        <Button
-            android:id="@+id/buttonExitBTN"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8pt"
-            android:layout_weight ="1"
-            android:textSize="22sp"
-            android:backgroundTint="@color/button_color"
-            android:text="Exit"
-            />
-
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
